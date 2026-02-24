@@ -14,4 +14,10 @@ app.get('/', (req, res) => {
   res.json({ status: 'API online' })
 })
 
+const auth = require('./middleware/auth')
+
+app.get('/perfil', auth, (req, res) => {
+  res.json(req.usuario)
+})
+
 module.exports = app
