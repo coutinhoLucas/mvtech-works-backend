@@ -10,8 +10,4 @@ app.use(express.json())
 app.use('/auth', authRoutes)
 app.use('/usuarios', usuarioRoutes)
 
-app.get('/', (req, res) => {
-  res.send('API mvtech-works rodando 🚀')
-})
-
 module.exports = app

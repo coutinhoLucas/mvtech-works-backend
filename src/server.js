@@ -1,8 +1,7 @@
-const express = require('express')
-const router = express.Router()
+const app = require('./app')
 
-const { login } = require('../controllers/auth.controller')
+const PORT = process.env.PORT || 3000
 
-router.post('/login', login)
-
-module.exports = router
+app.listen(PORT, () => {
+  console.log(`Servidor rodando na porta ${PORT}`)
+})
