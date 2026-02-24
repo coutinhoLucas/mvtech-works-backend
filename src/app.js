@@ -10,4 +10,8 @@ app.use(express.json())
 app.use('/auth', authRoutes)
 app.use('/usuarios', usuarioRoutes)
 
+app.get('/', (req, res) => {
+  res.json({ status: 'API online' })
+})
+
 module.exports = app
