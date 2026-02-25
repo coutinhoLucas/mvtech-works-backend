@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors');
 
 const authRoutes = require('./routes/auth.routes')
 const usuarioRoutes = require('./routes/usuarios.routes')
@@ -7,6 +8,17 @@ const clientesRoutes = require('./routes/clientes.routes')
 const app = express()
 
 app.use(express.json())
+
+app.use(cors({
+  origin: [
+    'http://localhost:4200',
+    'https://mvtech-works-frontend.onrender.com'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.options('*', cors());
 
 app.use('/auth', authRoutes)
 app.use('/usuarios', usuarioRoutes)
