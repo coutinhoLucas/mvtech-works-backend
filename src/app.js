@@ -7,8 +7,6 @@ const clientesRoutes = require('./routes/clientes.routes')
 
 const app = express()
 
-app.use(express.json())
-
 app.use(cors({
   origin: [
     'http://localhost:4200',
@@ -18,7 +16,7 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
-app.options('*', cors());
+app.use(express.json())
 
 app.use('/auth', authRoutes)
 app.use('/usuarios', usuarioRoutes)
